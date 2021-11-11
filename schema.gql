@@ -1,0 +1,37 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type FacilityType {
+  name: String!
+}
+
+type HouseType {
+  id: ID!
+  description: String!
+  houseHost: [String!]
+  address: String!
+  ubication: String!
+  facilities: [FacilityType!]
+  check_in: String!
+  check_out: String!
+  house_rules: String!
+}
+
+type ContactInfoType {
+  name: String!
+  description: String!
+  type: String!
+}
+
+type HostType {
+  id: ID!
+  fullName: String!
+  contactInfo: [ContactInfoType!]
+  userName: String!
+}
+
+type Query {
+  getAllHouses: [HouseType!]!
+  getAllHosts: [HostType!]!
+}
