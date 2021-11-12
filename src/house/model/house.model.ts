@@ -26,6 +26,14 @@ export const HouseSchema = new mongoose.Schema({
         }],
         required: false,
     },
+    images: {
+        type: [{
+            name: String,
+            description: String,
+        }],
+        required: true,
+        default: null,
+    },
     check_in: {
         type: String,
         required: false,

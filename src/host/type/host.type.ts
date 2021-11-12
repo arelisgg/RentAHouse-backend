@@ -27,7 +27,7 @@ export class CreatedHostType {
 }
 
 @InputType()
-export class NewHostTypee {
+export class NewHostType {
     @Field()
     fullName:String;
     @Field(() => [NewContactInfoType],{ nullable: true })
