@@ -4,6 +4,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { HouseModule } from './house/house.module';
 import { MulterModule } from '@nestjs/platform-express';
 import { MinioModule } from './minio/minio.module';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { MinioModule } from './minio/minio.module';
     GraphQLModule.forRoot({ autoSchemaFile: 'schema.gql' }),
     HouseModule,
     MinioModule,
+    UserModule,
   ],
 })
 export class AppModule {}

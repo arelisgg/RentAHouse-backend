@@ -6,6 +6,11 @@ type FacilityType {
   name: String!
 }
 
+type ImageType {
+  name: String!
+  description: String!
+}
+
 type HouseType {
   id: ID!
   description: String!
@@ -13,6 +18,7 @@ type HouseType {
   address: String!
   ubication: String!
   facilities: [FacilityType!]
+  images: [ImageType!]
   check_in: String!
   check_out: String!
   house_rules: String!
@@ -26,12 +32,54 @@ type ContactInfoType {
 
 type HostType {
   id: ID!
-  fullName: String!
   contactInfo: [ContactInfoType!]
-  userName: String!
+  systemUser: String!
+}
+
+type User {
+  _id: String!
+  firstName: String!
+  lastName: String!
+  password: String!
+  email: String!
+  imageURL: String
+  role: Roles
+  createdAt: String!
+}
+
+"""Admin create projects & tasks, Basic create tasks"""
+enum Roles {
+  Admin
+  Host
 }
 
 type Query {
   getAllHouses: [HouseType!]!
   getAllHosts: [HostType!]!
+  findAllUsers: [User!]!
+  findOneUser(_id: String!): User!
+  CurrentUser: User!
+}
+
+type Mutation {
+  createUser(createUserInput: CreateUserInput!): User!
+  login(password: String!, email: String!): String!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  updatePassword(newPass: String!, currPass: String!): User!
+  removeUser(_id: String!): User!
+}
+
+input CreateUserInput {
+  firstName: String!
+  lastName: String!
+  password: String!
+  email: String!
+  createdAt: String = "2021-11-13T03:22:50.269Z"
+}
+
+input UpdateUserInput {
+  firstName: String
+  lastName: String
+  email: String
+  createdAt: String = "2021-11-13T03:22:50.270Z"
 }

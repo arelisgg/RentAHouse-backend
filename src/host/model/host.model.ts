@@ -1,7 +1,7 @@
 import * as mongoose from 'mongoose';
 
 export const HostSchema = new mongoose.Schema({
-    fullName: {
+    systemUser: {
         type: String,
         required: true,
         default: null,
@@ -13,11 +13,6 @@ export const HostSchema = new mongoose.Schema({
             type: String,
         }],
         required: false,
-        default: null,
-    },
-    userName: {
-        type: String,
-        required: true,
         default: null,
     },
 });
