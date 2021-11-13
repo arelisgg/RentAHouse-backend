@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { GraphQLModule } from '@nestjs/graphql';
-import { HostModule } from './host/host.module';
 import { HouseModule } from './house/house.module';
 import { MulterModule } from '@nestjs/platform-express';
 import { MinioModule } from './minio/minio.module';
@@ -18,4 +17,3 @@ import { MinioModule } from './minio/minio.module';
   ],
 })
 export class AppModule {}
-
